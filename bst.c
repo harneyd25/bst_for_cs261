@@ -4,8 +4,8 @@
  * functions for this assignment.  Make sure to add your name and
  * @oregonstate.edu email address below:
  *
- * Name:
- * Email:
+ * Name: David Harney
+ * Email: harneyd@oregonstate.edu
  */
 
 #include <stdio.h>
@@ -455,12 +455,7 @@ void reverse_in_order(struct bst_node* root,struct stack* stack) {
   reverse_in_order(root->right, stack); // traverses right child node first
   stack_push(stack, &root->val); // pushes current parent node val onto stack
   reverse_in_order(root->left, stack); // tracerses left child node after
-
 }
-
-
-
-
 
 /*
  * This function should allocate and initialize a new in-order BST iterator
@@ -482,10 +477,9 @@ struct bst_iterator* bst_iterator_create(struct bst* bst) {
   assert(bst_iter);
   bst_iter->s = stack_create();
 
-		//TODO
   // pushing the values from bst onto the iterators stack in reverse in-order
   struct bst_node* current = bst->root;
-  reverse_in_order(current, bst_iter->s);  
+  reverse_in_order(current, bst_iter->s); 
 
   return bst_iter;
 }
